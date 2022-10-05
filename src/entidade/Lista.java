@@ -22,6 +22,7 @@ public class Lista {
     public void buscaLinkDoSite(String nomeDoSite){
         Node p = this.head;
         Node ant = null;
+        boolean a = false;
 
         while(p != null){
             if(nomeDoSite.equalsIgnoreCase(p.getValue().getNomeSite())){
@@ -36,11 +37,15 @@ public class Lista {
                         ant.setNext(p.getNext());
                         p.setNext(this.head);
                     }
+                    a = true;
                     this.head = p;
                 break;
             }
             ant = p;
             p = p.getNext();
+        }
+        if(!a){
+            System.out.println("O site digitado não foi encontrado!");
         }
     }
 
